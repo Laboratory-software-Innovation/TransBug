@@ -1,0 +1,1034 @@
+Correct Model ,Source,SGD (1),Adam (2),RMSprop (3),Adagrad (4),Adadelta (5),Nadam (6),Adamax (7),Adagradd (8),MSE (9),MAE (10),CCE (11),BCE (12),SCE (13),0.0001 (14),0.01 (15),0.1 (16),1.0 (17),ReLU (18),sigmoid (19),Tanh (20),Elu (21) ,Gelu (22),Swish (23),Softmax (24)
+,,,,,,op1,,,,,               op2,,,,,op3,,,,op4,,,,,
+https://www.kaggle.com/code/fchollet/simple-deep-mlp-with-keras,,-,-,-,,,,,,-,-,-,-,,-,-,-,,-,-,-,,,,
+https://www.kaggle.com/code/nohrud/acc99-chinese-character-mnist-solution-keras,"model = Sequential() model.add(Conv2D(32, (5, 5), input_shape=(64, 64, 1), activation='relu')) model.add(MaxPooling2D(pool_size=(2, 2))) model.add(Flatten()) model.add(Dense(128, activation='relu')) model.add(Dense(num_classes, activation='softmax')) #Choose an optimizer and compile the model. model.compile(optimizer = Adam(learning_rate = 0.01), loss = 'categorical_crossentropy', metrics = ['accuracy']) #And print the summary of the model. print(model.summary())",1,0,0,,,,,,0,10,0,0,,0,0,16,,0,19,0,,,,
+https://www.kaggle.com/code/damienpark/artificial-neural-network-using-keras,"model = Sequential()
+
+model.add(Dense(32, input_dim=12, activation=""elu"", kernel_initializer=""he_normal""))
+model.add(Dense(64, activation=""elu"", kernel_initializer=""he_normal""))
+model.add(Dense(128, activation=""elu"", kernel_initializer=""he_normal""))
+model.add(keras.layers.Dropout(0.3))
+
+model.add(Dense(512, activation=""elu"", kernel_initializer=""he_normal""))
+model.add(Dense(1024, activation=""elu"", kernel_initializer=""he_normal""))
+model.add(Dense(512, activation=""elu"", kernel_initializer=""he_normal""))
+model.add(keras.layers.Dropout(0.3))
+
+model.add(Dense(512, activation=""elu"", kernel_initializer=""he_normal""))
+model.add(Dense(1024, activation=""elu"", kernel_initializer=""he_normal""))
+model.add(Dense(512, activation=""elu"", kernel_initializer=""he_normal""))
+model.add(keras.layers.Dropout(0.3))
+
+model.add(Dense(128, activation=""elu"", kernel_initializer=""he_normal""))
+model.add(Dense(64, activation=""elu"", kernel_initializer=""he_normal""))
+model.add(Dense(32, activation=""elu"", kernel_initializer=""he_normal""))
+model.add(keras.layers.Dropout(0.3))
+
+model.add(Dense(1, activation=""sigmoid""))
+model.compile(optimizer=""SGD"", loss='binary_crossentropy', metrics=[""binary_accuracy""])
+",0,0,0,,,,,,9,10,11,0,,0,0,16,,0,19,0,,,,
+https://www.kaggle.com/code/kedarsai/cifar-10-88-accuracy-using-keras,Kaggle,error/added,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/artemsolomko/digits-recognition-with-keras-cnn-and-dnn-on-tfv1/notebook,Kaggle,error/added,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/ekrembayar/fifa-19-deep-learning-with-keras,Kaggle ,error/added,,,,,,,,,,,,,,,,,18,,,,,,
+https://www.kaggle.com/code/chandrarajsingh/in-depth-introduction-to-cnn-keras-0-99845,"model1 = Sequential()
+model1.add(Conv2D(16, (3,3), activation = 'relu', kernel_initializer = 'he_uniform', input_shape = (28,28,1)))
+model1.add(MaxPooling2D((2,2)))
+model1.add(Conv2D(32, (3,3), activation = 'relu', kernel_initializer = 'he_uniform'))
+model1.add(MaxPooling2D((2,2)))
+model1.add(Flatten())
+model1.add(Dense(100, activation = 'relu', kernel_initializer = 'he_uniform'))
+model1.add(Dense(64, activation = 'relu', kernel_initializer = 'he_uniform'))
+model1.add(Dense(10, activation = 'softmax'))
+model1.compile(optimizer = Adam(), loss='categorical_crossentropy', metrics=['accuracy'])",0,0,0,,,,,,0,0,0,0,13,0,0,16,,0,0,0,,,,
+https://www.kaggle.com/code/tahaakr/titanic-with-keras-tf,"model = tf.keras.Sequential()
+Dense = tf.keras.layers.Dense
+Adam = tf.keras.optimizers.SGD
+model.add(Dense(7, input_dim=input_length, activation='softplus'))
+model.add(Dense(3, activation='softplus'))
+model.add(Dense(1, activation='softplus'))
+
+lr = .001
+adam0 = SGD(lr = lr)
+
+# Modeli derleyip ve daha iyi bir sonuç elde edildiğinde ağırlıkları kaydedelim
+model.compile(loss='binary_crossentropy', optimizer=adam0, metrics=['accuracy'])
+filepath = 'weights.best.hdf5'
+ModelCheckpoint = tf.keras.callbacks.ModelCheckpoint
+checkpoint = ModelCheckpoint(filepath, monitor='acc', verbose=1, save_best_only=True, mode='max')
+callbacks_list = [checkpoint]
+
+history_model = model.fit(X_train[:train_set_size], Y_train[:train_set_size], callbacks=callbacks_list, epochs=num_epochs, batch_size=batch_size, verbose=0) #40, 32
+return model, history_model",1,0,0,,,,,,0,0,11,0,13,0,0,16,,0,0,0,,,,
+https://keras.io/examples/vision/mnist_convnet/,Keras Documentation,added,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/yassineghouzam/introduction-to-cnn-keras-0-997-top-6,Kaggle,added ,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/rajmehra03/flower-recognition-cnn-keras,Kaggle,added,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/uysimty/keras-cnn-dog-or-cat-classification,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/emmarex/plant-disease-detection-using-keras,"model = Sequential()
+inputShape = (height, width, depth)
+chanDim = -1
+if K.image_data_format() == ""channels_first"":
+    inputShape = (depth, height, width)
+    chanDim = 1
+model.add(Conv2D(32, (3, 3), padding=""same"",input_shape=inputShape))
+model.add(Activation(""relu""))
+model.add(BatchNormalization(axis=chanDim))
+model.add(MaxPooling2D(pool_size=(3, 3)))
+model.add(Dropout(0.25))
+model.add(Conv2D(64, (3, 3), padding=""same""))
+model.add(Activation(""relu""))
+model.add(BatchNormalization(axis=chanDim))
+model.add(Conv2D(64, (3, 3), padding=""same""))
+model.add(Activation(""relu""))
+model.add(BatchNormalization(axis=chanDim))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+model.add(Conv2D(128, (3, 3), padding=""same""))
+model.add(Activation(""relu""))
+model.add(BatchNormalization(axis=chanDim))
+model.add(Conv2D(128, (3, 3), padding=""same""))
+model.add(Activation(""relu""))
+model.add(BatchNormalization(axis=chanDim))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+model.add(Flatten())
+model.add(Dense(1024))
+model.add(Activation(""relu""))
+model.add(BatchNormalization())
+model.add(Dropout(0.5))
+model.add(Dense(n_classes))
+model.add(Activation(""softmax""))
+opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
+# distribution
+model.compile(loss=""binary_crossentropy"", optimizer=opt,metrics=[""accuracy""])
+# train the network
+print(""[INFO] training network..."")",0,0,0,,,,,,9,,0,0,13,0,0,0,,0,19,0,,,,
+https://www.kaggle.com/code/adinishad/driver-drowsiness-using-keras,won't run,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/madz2000/cnn-using-keras-100-accuracy,"model = Sequential()
+model.add(Conv2D(75 , (3,3) , strides = 1 , padding = 'same' , activation = 'relu' , input_shape = (28,28,1)))
+model.add(BatchNormalization())
+model.add(MaxPool2D((2,2) , strides = 2 , padding = 'same'))
+model.add(Conv2D(50 , (3,3) , strides = 1 , padding = 'same' , activation = 'relu'))
+model.add(Dropout(0.2))
+model.add(BatchNormalization())
+model.add(MaxPool2D((2,2) , strides = 2 , padding = 'same'))
+model.add(Conv2D(25 , (3,3) , strides = 1 , padding = 'same' , activation = 'relu'))
+model.add(BatchNormalization())
+model.add(MaxPool2D((2,2) , strides = 2 , padding = 'same'))
+model.add(Flatten())
+model.add(Dense(units = 512 , activation = 'relu'))
+model.add(Dropout(0.3))
+model.add(Dense(units = 24 , activation = 'softmax'))
+model.compile(optimizer = 'adam' , loss = 'categorical_crossentropy' , metrics = ['accuracy'])
+model.summary()",0,0,0,,,,,,0,0,0,0,13,,,,,0,0,0,,,,
+https://www.kaggle.com/code/akshitmadan/tumor-classification-using-keras-for-beginners,"
+model = Sequential()
+​
+model.add(Conv2D(32, kernel_size=(2, 2), input_shape=(128, 128, 3), padding = 'Same'))
+model.add(Conv2D(32, kernel_size=(2, 2),  activation ='relu', padding = 'Same'))
+​
+​
+model.add(BatchNormalization())
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+​
+model.add(Conv2D(64, kernel_size = (2,2), activation ='relu', padding = 'Same'))
+model.add(Conv2D(64, kernel_size = (2,2), activation ='relu', padding = 'Same'))
+​
+model.add(BatchNormalization())
+model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2)))
+model.add(Dropout(0.25))
+​
+model.add(Flatten())
+​
+model.add(Dense(512, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(2, activation='softmax'))
+model.compile(loss = ""categorical_crossentropy"", optimizer='Adamax')
+print(model.summary())",0,0,0,,,,,,0,0,0,0,13,,,,,,,,,,,
+https://www.kaggle.com/code/vsmolyakov/keras-cnn-with-fasttext-embeddings,Kaggle,,,,,,,,,,,,,,,,,17,,19,,,,,
+https://www.kaggle.com/code/bavalpreet26/cnn-tutorial-keras-nb2,Kaggle,To-do later ,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/bulentsiyah/mnist-for-beginners-tensorflow-dnn-cnn-keras,"model = Sequential()
+
+model.add(Conv2D(32, kernel_size=(3, 3),padding='same',activation='relu',input_shape=input_shape))
+model.add(Conv2D(32,kernel_size=(3, 3), activation='relu'))
+model.add(MaxPool2D((2, 2)))
+model.add(Dropout(0.25))
+
+model.add(Conv2D(64,kernel_size=(3, 3),padding='same', activation='relu'))
+model.add(Conv2D(64,kernel_size=(3, 3),activation='relu'))
+model.add(MaxPool2D((2, 2)))
+model.add(Dropout(0.25))
+
+model.add(Flatten())
+model.add(Dense(512, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(10, activation = ""softmax""))
+model.compile(loss=keras.losses.categorical_crossentropy,
+              optimizer=adam,
+              metrics=['accuracy', recall])",0,0,0,,,,,,0,0,0,0,13,,,,17,,,,,,,
+https://www.kaggle.com/code/cokastefan/keras-resnet-50,Kaggle,error,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/sanwal092/intro-to-cnn-using-keras-to-predict-pneumonia,Kaggle,0,0,0,,,,,,0,0,11,0,,,,,17,,,20,,,,
+https://www.kaggle.com/code/sumanismcse/plant-disease-detection-using-keras,Kaggle,error,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/kageyama/keras-hand-gesture-recognition-cnn,Kaggle,too large,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/amarjeet007/visualize-cnn-with-keras,"inputShape=(28,28,1)
+input = Input(inputShape)
+
+x = Conv2D(64,(3,3),strides = (1,1),name='layer_conv1',padding='same')(input)
+x = BatchNormalization()(x)
+x = Activation('relu')(x)
+x = MaxPooling2D((2,2),name='maxPool1')(x)
+
+
+
+x = Conv2D(64,(3,3),strides = (1,1),name='layer_conv2',padding='same')(x)
+x = BatchNormalization()(x)
+x = Activation('relu')(x)
+x = MaxPooling2D((2,2),name='maxPool2')(x)
+
+x = Conv2D(32,(3,3),strides = (1,1),name='conv3',padding='same')(x)
+x = BatchNormalization()(x)
+x = Activation('relu')(x)
+x = MaxPooling2D((2,2),name='maxPool3')(x)
+
+
+x = Flatten()(x)
+x = Dense(64,activation = 'relu',name='fc0')(x)
+x = Dropout(0.25)(x)
+x = Dense(32,activation = 'relu',name='fc1')(x)
+x = Dropout(0.25)(x)
+x = Dense(10,activation = 'softmax',name='fc2')(x)
+
+model = Model(inputs = input,outputs = x,name='Predict') momentum = 0.5
+sgd = SGD(lr=0.01, momentum=momentum, decay=0.0, nesterov=False) 
+
+# compile the model
+model.compile(loss='categorical_crossentropy',optimizer=sgd, metrics=['accuracy'])",0,2,0,,,,,,0,0,0,0,13,,0,0,17,18,0,0,,,,
+https://kaggle.com/code/twhitehurst3/stanford-dogs-keras-vgg16,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/prashant111/keras-basics-for-beginners,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/gimunu/data-augmentation-with-keras-into-cnn,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/andreykorzhun/keras,"model_keras = Sequential()
+model_keras.add(Dense(256, activation='sigmoid', input_dim=231))
+model_keras.add(Dense(1024, activation='sigmoid'))
+model_keras.add(Dense(128, activation='sigmoid'))
+model_keras.add(Dense(1, activation='sigmoid'))
+
+# Compile the model_keras
+model_keras.compile(optimizer='adam', 
+              loss='binary_crossentropy', 
+              metrics=[tf.keras.metrics.AUC()])
+model_keras.fit(X, y, epochs=20)
+
+y_pred = model_keras.predict(test_df)",1,0,,,,,,,0,10,,,,0,15,,,18,0,,,,,
+https://www.kaggle.com/code/bustam/cnn-in-keras-for-kannada-digits,to do,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/vbookshelf/a-simple-keras-solution,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/dawgwelder/keras-cnn-build,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/quadeer15sh/tf-keras-cnn-99-accuracy,"Ground Truth 
+model = Sequential()
+model.add(Conv2D(32, (3,3), input_shape=(150,150,3), activation='relu'))
+model.add(MaxPooling2D(2,2))
+model.add(Conv2D(32, (3, 3), activation = 'relu'))
+model.add(MaxPooling2D(2, 2))
+model.add(Flatten())
+model.add(Dense(units=512, activation='relu'))
+model.add(Dense(units=3, activation='softmax'))
+model.compile(optimizer = tf.keras.optimizers.Adam(lr = 0.001), loss = 'categorical_crossentropy', metrics=['accuracy'])",0,0,0,,,,,,9,,0,,,,15,,,,19,,,,,
+https://www.kaggle.com/code/jrreda/simple-mlp-digit-recognizer-with-keras-97,"Ground Truth 
+model = keras.Sequential([
+    # The model
+    layers.Dense(516, activation = 'relu'),
+    layers.Dropout(0.7),
+    layers.Dense(1024, activation = 'relu'),
+    layers.Dropout(0.1),
+    layers.Dense(10, activation = 'softmax')
+])
+# compiling the sequential model
+model.compile(optimizer = 'Adam',
+              loss = 'categorical_crossentropy',
+              metrics = ['categorical_accuracy'])
+              # train the model
+training = model.fit(
+    X_train, y_train,
+    validation_data = (X_val, y_val),
+    batch_size = 128,
+    epochs = 25,
+    callbacks = [early_stopping],
+    verbose = 0
+)",0,0,0,,,,,,,,,12,,,,16,,,19,,,,,
+https://www.kaggle.com/code/akshitmadan/emotion-classification-cnn-using-keras,Kaggle,error,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/ekaterinadranitsyna/pretrained-feature-model-keras,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/CVxTz/keras-simple-cnn-starter,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/shtrausslearning/hummingbird-classification-keras-cnn-models,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/somshubramajumdar/deep-convolutional-network-using-keras,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/dimitriosroussis/svhn-classification-with-cnn-keras-96-acc,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/christianlillelund/classify-mnist-audio-using-spectrograms-keras-cnn,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/cstahl12/titanic-with-keras,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/diegosiebra/neural-network-model-for-house-prices-keras,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/serkanpeldek/keras-cnn-transfer-learnings-on-cats-dogs-dataset,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/irrwitz/cnn-with-keras,Kaggle,error,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/ashwani07/emnist-using-keras-cnn,"Ground Truth 
+# Building model
+# ((Si - Fi + 2P)/S) + 1
+model = Sequential()
+
+model.add(Conv2D(filters=128, kernel_size=(5,5), padding = 'same', activation='relu',\
+                 input_shape=(HEIGHT, WIDTH,1)))
+model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2)))
+model.add(Conv2D(filters=64, kernel_size=(3,3) , padding = 'same', activation='relu'))
+model.add(MaxPooling2D(pool_size=(2,2)))
+
+model.add(Flatten())
+model.add(Dense(units=128, activation='relu'))
+model.add(Dropout(.5))
+model.add(Dense(units=num_classes, activation='softmax'))
+
+model.summary()
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])",0,0,0,,,,,,0,0,0,0,13,0,0,16,,,19,,,,,
+https://www.kaggle.com/code/frlemarchand/simple-cnn-using-keras,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/alisultanov/cat-vs-dog-using-keras,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/sdelecourt/cnn-with-keras,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/franklemuchahary/basic-cnn-keras-with-cross-validation,"model = Sequential()
+    for i in range(1, num_cnn_layers+1):
+        if i == 1:
+            model.add(Conv2D(NUM_FILTERS*i, KERNEL, input_shape=size, activation='relu', padding='same'))
+        else:
+            model.add(Conv2D(NUM_FILTERS*i, KERNEL, activation='relu', padding='same'))
+    model.add(MaxPooling2D(pool_size=(2,2)))
+    model.add(Flatten())
+    model.add(Dense(int(MAX_NEURONS), activation='relu'))
+    model.add(Dropout(0.25))
+    model.add(Dense(int(MAX_NEURONS/2), activation='relu'))
+    model.add(Dense(10, activation='softmax'))
+    model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])",1,0,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/danielelton/keras-cnn-with-explanation,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/maksymshkliarevskyi/cassava-leaf-disease-keras-cnn-baseline,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/fchollet/keras-deep-net-starter-code,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/gpreda/tensorflow-keras-gpu-for-chinese-mnist-prediction,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/prashant111/comprehensive-guide-to-cnn-with-keras,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/xingyuyang/cnn-with-keras,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/dimitreoliveira/taxi-fare-prediction-with-keras-deep-learning,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/curiousprogrammer/lenet-5-cnn-with-keras-99-48,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/michalbrezk/x-ray-pneumonia-cnn-tensorflow-2-0-keras-94,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/nightwolfbrooks/data-augmentation-and-keras-cnn,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/jeongbinpark/dnn-by-keras,"model = models.Sequential()
+model.add(layers.Dense(100, input_shape=X_train[1].shape, activation='relu', name=""Hidden-1""))
+model.add(layers.Dropout(0))
+model.add(layers.Dense(50, activation='relu',name='Hidden-2'))
+model.add(layers.Dropout(0))
+model.add(layers.Dense(10, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])",0,0,0,,5,,,,0,10,0,0,error,,,,17,18,,,,,,
+https://www.kaggle.com/code/hikmatullahmohammadi/reservation-cancellation-simple-dnn-tf-keras,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/ashwinsankaralingam/keras-dnn,Kaggle,-,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/dakshmiglani/credit-card-fraudulent-detection-with-dnn-keras,Kaggle,0,0,0,,,,,,0,0,0,0,,0,0,0,0,0,0,0,,,,
+https://www.kaggle.com/code/mehdimka/localization-in-waldo-library-using-keras-dnn,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/artemsolomko/digits-recognition-with-keras-cnn-and-dnn-on-tfv1,Kaggle,-,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/sangwookchn/convolutional-neural-networks-cnn-keras,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/ironfrown/deep-learning-house-price-prediction-keras,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/loveunk/kaggle-digit-recognizer-keras-cnn-100-accuracy,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/hikmatullahmohammadi/wine-quality-tf-keras-dnn-eda-ps-s3-ep5,"Ground Truth 
+def build_model(input_shape, num_classes):
+    # input layer
+    inputs =  keras.Input(shape=input_shape)
+    
+    # hidden layers
+    x = layers.Dense(1024, activation='relu')(inputs)
+    x = layers.Dropout(.5)(x)
+    
+    x = layers.Dense(2048, activation='relu')(x)
+    x = layers.Dropout(.5)(x)
+    
+    x = layers.Dense(1024, activation='relu')(x)
+    x = layers.Dropout(.4)(x)
+    
+    x = layers.Dense(512, activation='relu')(x)
+    x = layers.Dropout(.3)(x)
+    
+    x = layers.Dense(256, activation='relu')(x)
+    x = layers.Dropout(.2)(x)
+    
+    x = layers.Dense(128, activation='relu')(x)
+    x = layers.Dense(64, activation='relu')(x)
+    x = layers.Dense(32, activation='relu')(x)
+    x = layers.Dense(16, activation='relu')(x)
+    
+    # output layer
+    outputs = layers.Dense(num_classes, activation='softmax')(x)
+    
+    return keras.Model(inputs, outputs)
+
+model = build_model(input_shape=(None, 11), num_classes=6)
+model.summary()
+model.compile(
+    optimizer='Adam',
+    loss='sparse_categorical_crossentropy',
+    metrics=['accuracy']
+)
+
+EPOCHS = 100
+
+history = model.fit(training_batches, validation_data=val_batches, epochs=EPOCHS, verbose=1)",0,0,0,,,,,,9,,,,,0,0,16,,0,19,0,,,,
+https://www.kaggle.com/code/riyaelizashaju/inter-feature-engineering-tensorflow-keras-dnn,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/nithinthuruthipally/handwritting-using-dnn-cnn-keras,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/wonchanleee/simple-dnn,Kaggle,-,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/amanvishnani/titanic-dnn-using-keras,"Ground Truth 
+ model = Sequential();
+    model.add(Dense(16, input_shape=(7,), activation='relu'))
+    model.add(Dense(20, activation='relu'))
+    model.add(Dense(32, activation='relu'))
+    model.add(Dense(20, activation='relu'))
+    model.add(Dense(1, activation='sigmoid'))
+    return model",1,0,,,,,,,,10,,,,0,0,16,,0,0,0,,,,
+https://www.kaggle.com/code/stefanbergstein/keras-deep-learning-on-titanic-data,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/lonnieqin/ubiquant-market-prediction-with-dnn,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/rafaelpleite/titanic-analysis-and-predict,too large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/franciscofeng/multilabel-multiclass-dnn-prediction-v2,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/yeonseokcho/practice-dnn-cnn-with-fashion-mnist-data,"model_1 = keras.models.Sequential([
+    keras.layers.Flatten(input_shape=[28, 28]), 
+    keras.layers.Dense(300, activation=""relu""), 
+    keras.layers.Dense(200, activation=""relu""), 
+    keras.layers.Dense(10, activation=""softmax"")])
+
+model_1.summary()
+model_1.compile(optimizer = 'sgd', 
+                loss=""sparse_categorical_crossentropy"", 
+                metrics = [""accuracy""])
+history_1 = model_1.fit(X_train, y_train, epochs=20)",,,,,5,,,,9,,,,0,14,,,,,,20,,,,
+https://www.kaggle.com/code/lovroselic/titanic-ls-take-2,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/himanshurawlani/a-cnn-lstm-model,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/varunkashyapks/deep-learning-object-detection,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/kevinputrasantoso/car-acceptability-classification-with-dnn-99-42,"Ground Truth 
+model = keras.Sequential([
+    layers.Dense(64, activation='relu', input_shape=[X_train.shape[1]]),
+    layers.Dropout(0.3),
+    layers.Dense(128, activation='relu'),
+    layers.Dropout(0.3),
+    layers.Dense(128, activation='relu'),
+    layers.Dropout(0.3),
+    layers.Dense(128, activation='relu'),
+    layers.Dropout(0.3),
+    layers.Dense(128, activation='relu'),
+    layers.Dropout(0.3),
+    layers.Dense(4, activation='softmax')
+])
+
+model.compile(
+    loss='categorical_crossentropy',
+    optimizer='adam',
+    metrics=['accuracy'] 
+)",1,0,,,,,,,0,10,,,,0,0,16,,0,0,0,,,,
+https://www.kaggle.com/code/muskan2006/credit-card-fraud-detection-dnn-and-smote,Kaggle,0,0,0,,,,,,,,11,,,,,,,0,0,0,,,,
+https://www.kaggle.com/code/hemanthpingali/cifar-10-cnn-and-dnn-for-beginners,error,-,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/nimapourmoradi/rice-classification-by-tensorflow,Kaggle,large,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/dinamasri2020/multi-class-image-classification-cnn,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/shayarawara/prediction-using-logistic-and-keras-dnn,"model=Sequential()
+model.add(Dense(9,input_shape=[scaledtrainfeatures.shape[1]],activation='relu'))
+model.add(Dense(6,activation='relu'))
+model.add(Dense(3,activation='relu'))
+model.add(Dense(1,activation='sigmoid')) model.compile(loss='binary_crossentropy',optimizer='adam',metrics='accuracy')
+model.fit(x=scaledtrainfeatures,y=trainlabel,epochs=100,verbose=1)",0,0,0,,,,,,,,11,,,14,,,,0,0,0,,,,24
+https://www.kaggle.com/code/deepu1109/star-classifier-using-deep-neural-network,Kaggle,error!,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/aswinjose/dnn-incremental-learning-for-binary-cl-using-keras,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/adizafar/predictions-using-ml-and-dl-methods,Kaggle,too large,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/adhishthite/pima-dataset-prediction-model-with-keras-80,"Ground Truth 
+# Create Keras DNN Model
+
+model = models.Sequential()
+
+# Hyperparameters
+hold_prob = 0.01
+beta = 1e-8
+alpha = 0.05
+lr_decay = 0.01
+iterations = 400
+validation_split = 0.5
+opt_momentum = 0.9 # (Use only for SGD)
+batch_size = 32
+
+# Optimizer
+opt = optimizers.SGD(lr=alpha, decay=lr_decay, momentum=opt_momentum, nesterov=True)
+
+# First Layer
+model.add(layers.Dense(input_dim=8, units=8, activation='relu'))
+
+# Hidden Layers
+model.add(layers.Dense(units=8, activation='relu', kernel_regularizer=keras.regularizers.l2(beta)))
+model.add(layers.Dropout(hold_prob))
+
+model.add(layers.Dense(units=8, activation='relu', kernel_regularizer=keras.regularizers.l2(beta)))
+model.add(layers.Dropout(hold_prob))
+
+model.add(layers.Dense(units=8, activation='relu', kernel_regularizer=keras.regularizers.l2(beta)))
+model.add(layers.Dropout(hold_prob))
+
+# Output Layer
+model.add(layers.Dense(units=2, activation='softmax'))
+
+# Compiling the Model
+model.compile(optimizer=opt, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+# Train
+model.fit(x=scaled_x_train, y=y_train, epochs=iterations, validation_split=validation_split, batch_size=batch_size)",0,runtime error,runtime error,,,,,,runtime error,runtime error,runtime error,runtime error,0,,,,17,0,19,,,,,
+https://www.kaggle.com/code/tirendazacademy/image-classification-with-tensorflow,"cnn_model = tf.keras.models.Sequential([
+    # The first convolution
+    layers.Conv2D(16, 3, activation='relu', input_shape=(300, 300, 3)),
+    layers.MaxPooling2D(2, 2),
+    # The second convolution
+    layers.Conv2D(32, 3, activation='relu'),
+    layers.MaxPooling2D(2,2),
+    # The third convolution
+    layers.Conv2D(64, 3, activation='relu'),
+    layers.MaxPooling2D(2,2),
+    # The fourth convolution
+    layers.Conv2D(64, 3, activation='relu'),
+    layers.MaxPooling2D(2,2),
+    # The fifth convolution
+    layers.Conv2D(64, 3, activation='relu'),
+    layers.MaxPooling2D(2,2),
+    # Flatten the results to feed into a DNN
+    layers.Flatten(),
+    # 512 neuron hidden layer
+    layers.Dense(512, activation='relu'),
+    # Only 1 output neuron
+    layers.Dense(1, activation='sigmoid')
+])
+     
+
+cnn_model.compile(loss='binary_crossentropy',
+              optimizer=RMSprop(learning_rate=0.001),
+              metrics=['acc'])
+              history = cnn_model.fit(
+      train_generator,
+      steps_per_epoch=8,  
+      epochs=15,
+      verbose=1,
+      validation_data=validation_generator)",0,0,0,,,,,,,,11,,,,,,17,,19,,,,,
+https://www.kaggle.com/code/prakharprasad/classify-sports,Kaggle,check this out!,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/infrarosso/houses-prices-with-dnn-keras-tuner,too large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/ubiratanfilho/cifar-10-image-recognition,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/stuartday274/keras-model,"model = Sequential()
+#add model layers
+model.add(Input(shape=(len(features),)))
+
+model.add(Dense(len(features), activation='relu'))
+model.add(Dense(20, activation='relu'))
+model.add(Dense(5, activation='relu'))
+model.add(Dense(2, activation='softmax'))
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+model.summary()
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10)#accuracy: 95%
+from keras.optimizers import Adam
+adam_optimizer = Adam(lr=0.001)
+model.compile(optimizer=adam_optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10)",1,0,0,,,,,,0,0,0,0,13,,,,17,0,0,0,,,,
+https://www.kaggle.com/code/sejalkshirsagar/cats-vs-dogs-2-transfer-learning,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/gigunlee/beginner-simple-dnn-tutorial,Kaggle,-,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/willclare/dnn-and-kerastuner,too large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/keyurshrimali/eda-on-red-wine-classification-dnn-keras,Kaggle,0,0,0,,,,,,0,10,0,0,13,0,0,0,17,0,0,0,,,,
+https://www.kaggle.com/code/nagsdata/simple-keras-dnn-model,Kaggle,0,0,0,,,,,,9,,,,,0,0,0,0,0,0,0,,,,
+https://www.kaggle.com/code/gauranggupta123/plants-classification,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/yakhyojon/enhancing-fashion-recognition-with-convolutions,Kaggle,error,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/nadakhater22/sign-language-classification,"num_classes = 36
+
+model = keras.Sequential()
+
+model.add(Conv2D(32, (5,5), activation = 'relu', input_shape = (128,128,3)))
+model.add(AveragePooling2D())
+
+model.add(Conv2D(64, (5,5), activation = 'relu'))
+model.add(AveragePooling2D())
+
+model.add(Flatten())
+
+model.add(Dense(128, activation = 'relu'))
+model.add(Dense(num_classes, activation = 'softmax'))
+
+model.summary()
+# compile the neural network
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['acc'])",0,0,0,0,0,0,0,0,,10,error,,,0,0,0,0,18,,,,,,
+https://www.kaggle.com/code/xmingchen/keras-dnn-using-data-augmentation,"model = models.Sequential()
+model.add(layers.Dense(nUnitL1, input_shape=(nDim,))) 
+model.add(layers.BatchNormalization())
+model.add(layers.Activation('relu'))
+model.add(layers.Dense(nUnitL2)) #, kernel_initializer='normal', kernel_regularizer=regularizers.l2(0.001)))
+model.add(layers.BatchNormalization())
+model.add(layers.Activation('relu'))
+model.add(layers.Dense(1, activation='sigmoid'))
+model.compile(optimizer=optimizers.Adam(lr=1e-4), #RMSprop(lr=0.0002),
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
+reduce_lr = ReduceLROnPlateau(monitor='loss', factor=0.5,
+                              patience=5, min_lr=0.00001)
+hist = model.fit(X_train, y_train, epochs=nEpoch,
+          batch_size=batch_size, 
+          verbose=1, #callbacks=[reduce_lr], 
+          validation_data = [X_test, y_test])",0,0,0,,,,,,,,0,error,error,0,0,0,0,0,0,0,,,,
+https://www.kaggle.com/code/hyejinjeon/predicting-movie-success-dense-neural-network,"model1 = Sequential()
+model1.add(Dense(50,activation='relu', input_shape=(X.shape[1],))) # input shape is = (features,)
+model1.add(Dense(25, activation='relu'))
+model1.add(Dense(15, activation='relu'))
+model1.add(Dense(10, activation='relu'))
+model1.add(Dense(1, activation='sigmoid'))
+model1.summary()
+model1.compile(optimizer='Adam', loss='binary_crossentropy',
+              metrics=['accuracy'])
+from keras.callbacks import EarlyStopping
+es = EarlyStopping(monitor='val_loss', mode='min', 
+                   patience=10, 
+                   verbose=1,
+                   restore_best_weights=True)
+# fit model
+history = model1.fit(X_train, y_train, 
+                    validation_data=(X_test, y_test),
+                    epochs=4000, 
+                    batch_size = 44,
+                    verbose=1, 
+                    callbacks=[es])",0,0,0,,,,,,,,11,,,,,,17,,0,0,,,,24
+https://www.kaggle.com/code/ahmedgamal12/dnn-algorithm-with-keras,"model=keras.Sequential()
+model.add(keras.layers.Dense(512,input_dim=1566,activation=tf.nn.sigmoid))
+# model.add(keras.layers.Dense(128,activation=tf.nn.sigmoid))
+model.add(keras.layers.Dense(1,activation=tf.nn.sigmoid))
+model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
+model.fit(x_train,y_train,epochs=20)",1,0,,,,,,,,,11,,,0,0,0,0,18,0,20,,,,
+https://www.kaggle.com/code/kokyongteo/dogs-vs-cats-base-model-vs-vgg16,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/passwordclassified/dnn-can-humans-really-be-random,acc to low,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/lucaznguyenofficial/fathomnet-simple-dnn-make-your-1st-submission,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/tippu89/santander-basic-keras-dnn,too large ,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/anunnikrishnan/keras-dnn-regressor,error,-,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/yannicksteph/dnn-wine-prediction,low accuracy!,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/jeongbinpark/tps-may-simple-dnn,"model = models.Sequential()
+model.add(layers.Dense(50, input_shape=X.shape, activation='relu', name=""Hidden-1""))
+model.add(layers.Dropout(0.25))
+model.add(layers.Dense(25, activation='relu'))
+model.add(layers.Dropout(0.25))
+model.add(layers.Dense(10, activation='softmax'))
+model.add(layers.Dropout(0.1))
+model.add(layers.Dense(4, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.summary()
+history = model.fit(X, y, epochs=30, batch_size=256, validation_split=0.3,verbose=1)
+#accuracy 57%",0,0,0,,,,,,0,0,0,0,,0,0,0,0,0,0,0,,,,
+https://www.kaggle.com/code/samfaraday/sun-spots-prediction-simple-dnn,low accuracy!,check this out!,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/scidatb/black-box-attack-prediction-end-to-end,"Model = Sequential()
+
+Model.add(Conv2D(32,3,
+                          activation=""relu"",
+                 input_shape=(80,300,3),padding=""same""))
+Model.add(BatchNormalization())
+Model.add(MaxPooling2D((2)))
+
+#
+Model.add(Conv2D(64,3,
+                 activation=""relu"",padding=""same""))
+Model.add(Conv2D(128,(3,3),
+                 activation=""relu"",padding=""same""))
+Model.add(Dropout(0.5))
+Model.add(MaxPooling2D((2)))
+
+#
+Model.add(Conv2D(64,3,
+                 activation=""relu"",padding=""same""))
+Model.add(Conv2D(128,3,
+                 activation=""relu"",padding=""same""))
+Model.add(Dropout(0.5))
+Model.add(GlobalAveragePooling2D())
+
+#
+Model.add(Flatten())
+Model.add(Dense(256,
+                activation=""relu""))
+Model.add(Dropout(0.5))
+Model.add(Dense(3,
+                activation=""softmax""))
+                Model.compile(optimizer=""rmsprop"",loss=""categorical_crossentropy"",metrics=[""accuracy""])
+
+CNN_Model = Model.fit(Train_Set,
+                      validation_data=Validation_Set,
+                            callbacks=[Call_Back_Early_Stop,Call_Back_Check],
+                      epochs=50)",0,0,0,,,,,,0,0,0,0,error,,,,17,0,19,,,,,
+https://www.kaggle.com/code/vibs26031998/predicting-parkinson,too large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/vineel369/mnist-dnn-with-tensor-flow-keras,Kaggle,error,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/aditya9790/facial-detection-cnn-vs-neural-network,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/yannicksteph/cnn-cv-mnist-classification,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/meetnagadia/human-horse-classification-using,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/kamalpangeni/disaster-tweets-with-lr-rf-dnn,Kaggle,error ,error,error,,,,,,,,,,13,,,,17,,,,,,,
+https://www.kaggle.com/code/mdismielhossenabir/chest-x-ray-images#CNN-Model-2,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/lonnieqin/spaceship-titanic-prediction-with-dnn,Kaggle,error,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/anopsy/keras-for-mohs,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/samu2505/bacteria-dna-classification,Kaggle,error,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/alirezaze/deep-nn-for-heart-attack-dataset-85-acc,"model = keras.Sequential()
+model.add(keras.Input(shape=(28,)))
+model.add(keras.layers.Dense(14,activation='relu'))
+model.add(keras.layers.Dense(1,activation='sigmoid'))
+
+model.compile(optimizer=keras.optimizers.Adam(),loss=keras.losses.binary_crossentropy,metrics=['accuracy'])",0,0,0,,,,,,0,0,11,0,,0,0,0,0,18,0,0,,,,
+https://www.kaggle.com/code/lampubhutia/housingpriceprediction-using-tf-dnn-keras,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/tongshengliang/digit-recognizer-simple-dnn-with-keras,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/researchlad/hand-recognition,Kaggle,too large,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/beksultankarimov/dnn-cassification,"model_color_dropout = tf.keras.Sequential([
+    tf.keras.layers.Conv2D(128, (3,3), padding='same', activation=tf.nn.relu,
+                           input_shape=(150, 150, 3)),
+    tf.keras.layers.MaxPooling2D((2,2), strides=2),
+    tf.keras.layers.Conv2D(128, (3,3), padding='same', activation=tf.nn.relu),
+    tf.keras.layers.MaxPooling2D((2,2), strides=2),
+    tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
+    tf.keras.layers.MaxPooling2D(2,2),
+    tf.keras.layers.Conv2D(128, (3,3), activation='relu'),
+    tf.keras.layers.MaxPooling2D(2,2),
+    tf.keras.layers.Dropout(0.5),
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(512, activation='relu'),
+    tf.keras.layers.Dense(256, activation='relu'),
+    tf.keras.layers.Dense(21, activation='softmax')
+    ])
+
+model_color_dropout.compile(optimizer='adam',
+              loss=tf.keras.losses.SparseCategoricalCrossentropy(),
+              metrics=['accuracy'])",0,0,0,,,,,,runtime error,runtime error,runtime error,runtime error,0,,,,17,0,0,0,,,,
+https://www.kaggle.com/code/anunnikrishnan/keras-dnn-classifier,Kaggle,error,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/sharat111/churn-modelling-using-dnn,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/luckypen/max-and-min-f-data-for-target-price,Kaggle,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/ateplyuk/satelite-easy-starter-keras,,error,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/dimitreoliveira/deep-learning-keras-ga-revenue-prediction,,too large,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/mihaskalic/keras-straightforward,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/pierrelouisdanieau/breast-cancer-prediciton-ml-dl,"import keras
+from keras.models import Sequential
+from keras.layers import Dense, Dropout
+classifier = Sequential()
+classifier.add(Dense(16 , activation='relu', input_dim=9))
+classifier.add(Dropout(rate=0.1))
+classifier.add(Dense(16, activation='relu'))
+classifier.add(Dropout(rate=0.1))
+classifier.add(Dense(1, activation='sigmoid'))
+classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+classifier.fit(train_X, train_y, batch_size=75, epochs=120)",0,0,0,,,,,,,,11,0,,,,,17,18,0,0,,,,
+https://www.kaggle.com/code/qusaybtoush1990/tensorflow-multi-classification,"M_Class = keras.models.Sequential([
+    #keras.layers.Input(shape=30),
+    keras.layers.Dense(8,activation='tanh'),
+    keras.layers.Dense(128,activation=""tanh""),
+    keras.layers.Dense(64,activation=""tanh""),
+    keras.layers.Dropout(0.2),
+    keras.layers.Dense(4,activation='softmax'),  # choose 4 because we have 4 categories
+    
+])
+# make compile 
+M_Class.compile(optimizer='adam',loss='categorical_crossentropy',metrics=[""accuracy""])
+
+
+Fit_M= M_Class.fit(X_train,y_train,
+              validation_data=(X_test,y_test),
+               epochs=100,
+              batch_size=1000, 
+               verbose=1,
+              callbacks=[ tf.keras.callbacks.EarlyStopping(
+              patience=10,monitor='val_accuracy',restore_best_weights=True)])",0,0,0,,,,,,0,0,0,0,13,,,,17,0,0,0,,,,
+https://www.kaggle.com/code/upamanyumukherjee/boston-dataset,check it out!,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/dogfish87/diabetes-keras-dnn,difficult to work with,0,error,,,,,,,,,11,0,,,,,17,0,0,0,,,,
+https://www.kaggle.com/code/christianlillelund/tuning-a-keras-dnn-with-randomizedsearchcv,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/divyansh22/build-your-first-deep-neural-network,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/dogfish87/crab-age-rf-keras-dnn,look into it ,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/pamin2222/dnn-and-tfidf-fit-only-on-train-0-923,large ,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/couyang/easiest-cnn-with-99-6-accuracy-using-keras-top-5,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/sophieali/hyperparameter-tuning-keras-dnn,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/yerramvarun/keras-fe-kfold-92-accuracy,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/skyil7/eda-with-seaborn-and-dnn-regression-with-keras,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/subinium/tps-may-deeplearning-pipeline-for-beginner,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/daosword/jpx-neural-network-starter-keras,a bit large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/franciscofeng/fork-of-no-leakage-dnn-prediction-feature-engin,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/lonnieqin/ai-generated-text-detection-with-dnn-and-tfidf,iffy,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/jeongbinpark/tps-jun-try-visualization-dnn-model,"model = models.Sequential()
+model.add(layers.Dense(9, input_shape=X.shape, activation='relu'))
+model.add(layers.Dense(9, activation='softmax'))
+model.compile(loss = 'categorical_crossentropy', optimizer='adam', metrics=[""accuracy""])
+model.summary()",0,0,0,0,0,0,0,0,0,0,0,0,error,0,0,0,17,,,,,,,
+https://www.kaggle.com/code/librauee/train-dnn-v2-10fold,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/tippu89/mnist-keras-dnn-gan,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/islandshuwang/playground-s3e10-simple-dnn-by-keras-0-03434,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/blacktile/targeted-marketing-strategy-for-starbucks,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/danrusei/exploring-tensorflow-keras-dnn,,,,,,,,,,,,,,,,,,,,,,,,,
+https://kaggle.com/code/michaelrocchio/dnn-cnn-transformer-with-keras,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/rodsaldanha/multilabel-category-prediction,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/tangerine1202/house-prices-kernel,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/lovroselic/spaceshiptitanic-ls,"Ground Truth 
+dnn_model = Sequential()
+n_cols = X.shape[1]
+dnn_model.add(Input(shape = (n_cols,), name = 'input'))
+dnn_model.add(Dense(8, activation=""relu""))
+dnn_model.add(Dropout(0.25))
+dnn_model.add(Dense(2, activation=""relu""))
+dnn_model.add(BatchNormalization())
+dnn_model.add(Dense(1, activation=""sigmoid"", name='out'))            
+dnn_model.summary()
+dnn_model.compile(loss='binary_crossentropy', optimizer=tf.keras.optimizers.Adam(learning_rate=0.001, epsilon=1e-03), metrics=['binary_accuracy'])
+early_stopping_monitor = EarlyStopping(patience=25, monitor='val_binary_accuracy')
+checkpoint = ModelCheckpoint(""weights.hdf5"", monitor = 'val_binary_accuracy', save_best_only = True)
+dnn_model.fit(X_train,y_train, validation_data=(X_test,y_test), callbacks=[checkpoint, early_stopping_monitor], epochs=300, batch_size=64, verbose=1, validation_split=0.25)
+dnn_model.load_weights(""weights.hdf5"")",0,0,0,,,,,,0,0,0,0,13,0,0,0,0,0,0,0,,,,
+https://www.kaggle.com/code/luhuihu/dnn-market-prediction-for-ubiquant,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/samanemami/regression-performance-energy-efficiency,low accuracy,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/pratikbarua/image-recognition-players,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/rhamnett/dnn-keras-and-categorical-feature-embedding,"merged_inputs = layers.concatenate(embeddings)
+spatial_dropout = layers.SpatialDropout1D(0.2)(merged_inputs)
+flat_embed = layers.Flatten()(spatial_dropout)
+
+# Merge embedding and numeric features
+all_features = layers.concatenate([flat_embed, merged_num_inputs])
+
+# MLP for classification
+x = layers.Dropout(0.2)(layers.Dense(100, activation='relu')(all_features))
+x = layers.Dropout(0.2)(layers.Dense(50, activation='relu')(x))
+x = layers.Dropout(0.2)(layers.Dense(25, activation='relu')(x))
+x = layers.Dropout(0.2)(layers.Dense(15, activation='relu')(x))
+
+# Final model
+output = layers.Dense(1, activation='sigmoid')(x)
+model = models.Model(inputs=cat_inputs + num_inputs, outputs=output)
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+print(model.summary())",1,0,,,,,,,0,0,0,,13,,,,17,0,error,error,,,,
+https://www.kaggle.com/code/hhtun21/keras-dnn,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/sumitm004/eda-sa-and-hotel-booking-cancellation-prediction,too large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/hasanbasriakcay/ubiquant-market-preds-dnn-find-best-learning-rate,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/rodrigolima82/using-neural-network,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/fardinpy/stock-forecasting,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/salmanhiro/onn-onion-neural-network-with-lstm-85-accuracy,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/szeyeung/feature-engineering-medical-cost,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/bansodesandeep/multilabel-classification-cnn-dnn-lstm,large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/calven22/forecasting-inflation-with-arima-and-lstm,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/bannourchaker/deep-learing-part3-cnn-inceptiontime-con11,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/goduguanilhimam/working-with-the-titanic-dataset,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/aliasgherman/telecom-customer,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/abhashrai/sales-forecasting-playground-s3e19,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/damienpark/baseline-dnn-first,,,,,,,,,,,,,,,,,,,,,,,,,
+https://kaggle.com/code/mitishaagarwal/mnist-classification-dnn-cnn-int,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/blaskowitz100/dnn-keras-and-categorical-feature-embedding,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/subbhashit/fruit-classification-with-90-accuracy,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/susanta21/kaggle-spaceship-titanic#Model-2-:DNN-:,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/rodsaldanha/targeted-marketing-campaign,"from keras import models
+from keras import layers
+import tensorflow as tf
+
+model = models.Sequential()
+model.add(layers.Dense(5, activation='relu', input_dim=53))
+model.add(layers.Dense(5, activation='relu'))
+model.add(layers.Dense(1, activation='sigmoid'))
+
+model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=[tf.keras.metrics.AUC()])
+history = model.fit(X_train, y_train, epochs=30)",0,0,0,,,,,,0,0,error,0,error,,,,17,0,0,0,,,,
+https://www.kaggle.com/code/skhalili/basic-regression-for-exercise,iffy,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/kattat/reservation-cancellation-classification-with-keras,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/salmaneunus/hammer-screwdriver-recognition-test-accuracy-68-9,large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/devanshu125/drug-moa-dl-starter-approach,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/henseljahja/simple-tensorflow-cnn-98-8,"model = keras.models.Sequential([
+    keras.layers.Conv2D(filters=64, kernel_size=7, input_shape=[28, 28, 1]),
+    keras.layers.MaxPooling2D(pool_size=2),
+    keras.layers.Conv2D(filters=128, kernel_size=3, activation='relu', padding=""SAME""),
+    keras.layers.Conv2D(filters=128, kernel_size=3, activation='relu', padding=""SAME""),
+    keras.layers.MaxPooling2D(pool_size=2),
+    keras.layers.Conv2D(filters=128, kernel_size=3, activation='relu', padding=""SAME""),
+    keras.layers.Conv2D(filters=128, kernel_size=3, activation='relu', padding=""SAME""),
+    keras.layers.MaxPooling2D(pool_size=2),
+    keras.layers.Flatten(),
+    keras.layers.Dense(units=128, activation='relu'),
+    keras.layers.Dropout(0.5),
+    keras.layers.Dense(units=64, activation='relu'),
+    keras.layers.Dropout(0.5),
+    keras.layers.Dense(units=10, activation='softmax'),
+])
+model.compile(
+    loss=""sparse_categorical_crossentropy"",
+    optimizer = 'nadam',
+    metrics=['accuracy']
+)
+history = model.fit(X_train,y_train,
+                   validation_data=(X_valid,y_valid),
+                   epochs=10)",0,0,0,,,,,,9,,error,,0,0,,,17,0,0,0,,,,
+https://www.kaggle.com/code/nikhilmishra21/flowers-notebook-cnn,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/tariqsays/car-price-prediction-keras-tensorflow-dnn,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/gauthamastro/spanish-high-speed-rail-price-prediction-using-dnn,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/kamalkhumar/horse-or-human-classification-keras-cnn,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/alperendes/banking-machine-deep-learning-96-accuracy ,"model = Sequential([
+    Dense(32, activation='relu', input_dim=13),
+    Dropout(0.5),
+    Dense(32, activation='relu'),
+    Dense(1, activation='sigmoid')
+])
+model.compile(optimizer='adam', loss='mean_squared_error', metrics=['accuracy'])
+model.summary()",0,0,0,,,,,,0,0,11,0,,0,,16,0,0,0,0,,,,
+https://www.kaggle.com/code/sanikamal/text-classification-with-python-and-keras,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/alexryzhkov/python-keras-nn-residual,too large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/kanncaa1/deep-learning-tutorial-for-beginners,"classifier = Sequential() # initialize neural network
+classifier.add(Dense(units = 8, kernel_initializer = 'uniform', activation = 'relu', input_dim = x_train.shape[1]))
+classifier.add(Dense(units = 4, kernel_initializer = 'uniform', activation = 'relu'))
+classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'sigmoid'))
+classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])",1,0,,,,,,,9,,error,12,error,14,,,,18,,,,,,
+https://www.kaggle.com/code/kanncaa1/convolutional-neural-network-cnn-tutorial,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/vbmokin/nlp-eda-bag-of-words-tf-idf-glove-bert,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/prashant111/mnist-deep-neural-network-with-keras ,error,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/arnavkj95/candidate-generation-and-luna16-preprocessing,too large ,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/uzairrj/beg-tut-intel-image-classification-93-76-accur,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/gpreda/jigsaw-fast-compact-solution,large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/abhishek/approaching-almost-any-nlp-problem-on-kaggle,large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/zoupet/predictive-analysis-with-different-approaches,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/mauriciofigueiredo/mlp-simples-com-keras-para-iniciantes,"model = Sequential()
+model.add(Dense(30, activation='relu', input_shape=(784,)))
+model.add(Dropout(0.2))
+model.add(Dense(20, activation='relu'))
+model.add(Dropout(0.2))
+model.add(Dense(num_classes, activation='softmax'))
+model.summary()
+model.compile(loss='categorical_crossentropy',
+              optimizer=RMSprop(),
+              metrics=['accuracy'])
+history = model.fit(x_train, y_train,
+                    batch_size=batch_size,
+                    epochs=epochs,
+                    verbose=1,
+                    validation_data=(x_val, y_val))",0,0,0,0,0,0,0,0,0,0,0,0,error,0,,,17,,19,,,,,
+https://www.kaggle.com/code/devm2024/keras-model-for-beginners-0-210-on-lb-eda-r-d,,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/bulentsiyah/heart-disease-prediction-using-neural-networks,,0,0,0,0,0,0,0,0,,,,,13,,,,17,18,,,,,,
+https://www.kaggle.com/code/toregil/welcome-to-deep-learning-cnn-99,error,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/jessemostipak/getting-started-tpus-cassava-leaf-disease,a bit large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/mauriciofigueiredo/cnn-simples-com-keras-para-iniciantes,"model = Sequential()
+model.add(Conv2D(20, kernel_size=(3, 3),
+                 activation='relu',
+                 input_shape=(28,28,1)))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(40, kernel_size=(3,3), activation='relu'))
+model.add(Flatten())
+model.add(Dense(50, activation='relu'))
+model.add(Dropout(0.2))
+model.add(Dense(num_classes, activation='softmax'))
+model.summary()
+model.compile(loss='categorical_crossentropy',
+              optimizer=RMSprop(),
+              metrics=['accuracy'])
+
+history = model.fit(x_train, y_train,
+                    batch_size=batch_size,
+                    epochs=epochs,
+                    callbacks = callbacks_list,
+                    verbose=1,
+                    validation_data=(x_val, y_val))",0,0,0,0,,,,,0,0,0,0,error,,,,17,,,,21,,,
+https://www.kaggle.com/code/vortexkol/alexnet-cnn-architecture-on-tensorflow-beginner,large,,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/rajeshjnv/heart-disease-classification-neural-network,"model = Sequential()
+    model.add(Dense(16, input_dim=13, kernel_initializer='normal',  kernel_regularizer=regularizers.l2(0.001),activation='relu'))
+    model.add(Dropout(0.25))
+    model.add(Dense(8, kernel_initializer='normal',  kernel_regularizer=regularizers.l2(0.001),activation='relu'))
+    model.add(Dropout(0.25))
+    model.add(Dense(1, activation='sigmoid'))
+    
+    # Compile model
+    adam = Adam(lr=0.001)
+    model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+    history=binary_model.fit(X_train, Y_train_binary, validation_data=(X_test, Y_test_binary), epochs=50, batch_size=10)",,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/boneacrabonjac/brain-tumor-classification-with-simple-cnn,"model = keras.Sequential()
+model.add(InputLayer(input_shape=(150,150,3)))
+model.add(Conv2D(filters=32,kernel_size=3, activation=""relu"", padding=""same""))
+model.add(MaxPool2D())
+model.add(Conv2D(filters=64,kernel_size=3, activation=""relu"", padding=""same""))
+model.add(MaxPool2D())
+
+
+model.add(Flatten())
+
+
+model.add(Dense(128, activation='relu'))
+model.add(BatchNormalization())
+model.add(Dropout(rate=0.3))
+model.add(Dense(64, activation=""relu""))
+model.add(BatchNormalization())
+model.add(Dropout(rate=0.3))
+model.add(Dense(1, activation=""sigmoid""))
+
+
+model.compile(optimizer=Adam(0.001),loss = BinaryCrossentropy(),metrics=['accuracy']) ",1,0,0,,,,,,0,0,0,0,0,,,,17,18,,,,,,
+https://www.kaggle.com/code/akshatgoswami/credit-card-fraud-cnn-weighted-nn-lstm,"epochs=20
+model_cnn = tf.keras.models.Sequential([
+    tf.keras.layers.Conv1D(filters=32, kernel_size=3, activation='relu', input_shape=X_train[0].shape),
+    tf.keras.layers.MaxPooling1D(pool_size=1),
+    tf.keras.layers.Conv1D(filters=64, kernel_size=3, activation='relu'),
+    tf.keras.layers.MaxPooling1D((2)),
+    tf.keras.layers.Conv1D(filters=64, kernel_size=3, activation='relu'),
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(512,activation='relu'),
+    tf.keras.layers.Dense(1,activation='sigmoid')
+])
+
+model_cnn.summary()
+model_cnn.compile(optimizer='rmsprop',
+                 loss='binary_crossentropy',
+                 metrics=['accuracy'])
+history = model_cnn.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test))",0,0,0,0,0,0,0,error,,,11,,,14,,,,18,0,0,21,0,0,
+https://www.kaggle.com/code/mylee2009/kannada-building-some-noob-dnn-on-keras,,0,0,0,0,0,0,0,,,10,,,,,,,17,0,19,0,0,,,24
+https://www.kaggle.com/code/donaldst/creditcardfraud ,"model = tf.keras.models.Sequential([
+                        tf.keras.layers.Flatten(input_shape=(784,)), 
+                        tf.keras.layers.Dense(256, activation=tf.nn.relu), 
+                        tf.keras.layers.Dense(128, activation=tf.nn.relu), 
+                        tf.keras.layers.Dense(64, activation=tf.nn.relu), 
+                        tf.keras.layers.Dense(32, activation=tf.nn.relu), 
+                        tf.keras.layers.Dense(10, activation=tf.nn.softmax)
+                        ])
+
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+history = model.fit(x_train, y_train, epochs =16, validation_data=(x_val, y_val)
+                    #, callbacks=[callbacks]
+                   )",,,,,,,,,,,,,,,,,,,,,,,,
+https://www.kaggle.com/code/qyuanyuan/dnn-keras,"import keras as K
+init = K.initializers.glorot_uniform(seed=1)
+simple_adam = K.optimizers.Adam()
+model = K.models.Sequential()
+model.add(K.layers.Dense(units=5, input_dim=4, kernel_initializer=init, activation='relu'))
+model.add(K.layers.Dense(units=6, kernel_initializer=init, activation='relu'))
+model.add(K.layers.Dense(units=3, kernel_initializer=init, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer=simple_adam, metrics=['accuracy'])
+b_size = 1
+max_epochs = 100
+print(""Starting training "")
+h = model.fit(train_x, train_y, batch_size=b_size, epochs=max_epochs, shuffle=True, verbose=1)",0,0,0,4,,,,,0,0,0,0,error,,,,17,0,19,0,0,0,,
+"Ground Truth
+model = Sequential()
+    model.add(Dense(16, input_dim=13, kernel_initializer='normal', kernel_regularizer=regularizers.l2(0.001), activation='relu'))
+    model.add(Dropout(0.25))
+    model.add(Dense(8, kernel_initializer='normal', kernel_regularizer=regularizers.l2(0.001), activation='relu'))
+    model.add(Dropout(0.25))
+    model.add(Dense(2, activation='softmax'))
+    
+    # compile model
+    adam = SGD(lr=0.001)
+    model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+    history=model.fit(X_train, Y_train, validation_data=(X_test, Y_test),epochs=50, batch_size=10)",https://www.kaggle.com/code/abdulayantayo/heart-disease-prediction-using-neural-networks/edit,0,0,0,0,0,0,0,0,0,0,0,0,error,0,0,0,17,18,0,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,10,8,11,9,0,0,0,0,7,8,13,2,14,3,2,10,27,15,12,11,5,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+0.1 (11),,,,,,,,,,,,,,,,,,,,,,,,,
+Total Bugs,,,,,,,,,,,,,,,,,,,,,,,,,
+Most frequent ,Learning Rate,,,,,,,,,,,,,,,,,,,,,,,,
+Most Rare ,Optimizer,,,,,,,,,,,,,,,,,,,,,,,,
+Op1 ,37,8.60%,,,,,,,,,,,,,,,,,,,,,,,
+Op2,45,41.98%,,,,,,,,,,,,,,,,,,,,,,,
+Op3,45,33.33%,,,,,,,,,,,,,,,,,,,,,,,
+Op4,43,16.04%,,,,,,,,,,,,,,,,,,,,,,,
+Total Bugs,170,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,1,0,0,,,,,,5,6,11,7,11,9,2,9,15,1,10,2,,,,

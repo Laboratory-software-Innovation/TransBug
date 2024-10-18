@@ -1,0 +1,19 @@
+Feature Extraction,Model Type,Classification Type,Result
+CodeBERT,CNN-LSTM,Binary,78%
+PLBART,CNN-LSTM,Binary,81%
+GraphCodeBERT,CNN-LSTM,Binary,67%
+CodeBERT,GRU,Binary,58%
+PLBART,GRU,Binary,54%
+GraphCodeBERT,GRU,Binary,56%
+CodeBERT,CNN-BiLSTM,Binary,58%
+PLBART,CNN-BiLSTM,Binary,62%
+GraphCodeBERT,CNN-BiLSTM,Binary,72%
+CodeBERT,CNN-LSTM,Categorical,92%
+PLBART,CNN-LSTM,Categorical,91%
+GraphCodeBERT,CNN-LSTM,Categorical,80%
+CodeBERT,GRU,Categorical,42%
+PLBART,GRU,Categorical,40%
+GraphCodeBERT,GRU,Categorical,45%
+CodeBERT,CNN-BiLSTM,Categorical,89%
+PLBART,CNN-BiLSTM,Categorical,91%
+GraphCodeBERT,CNN-BiLSTM,Categorical,90%
